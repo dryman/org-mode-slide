@@ -1,0 +1,273 @@
+#+TITLE: Org mode
+#+AUTHOR: Felix Chern
+#+REVEAL_THEME: white
+
+* What is it?
+- Best note taking and publishing platform
+- Export supports:
+  + Plain HTML http://www.idryman.org/org-math/probability-01.html
+  + HTML in presentation mode (this slide)
+  + Latex
+  + Latex beamer
+
+** Features (1)
+- Math formulas
+\[
+e^{i\pi} = -1
+\]
+- Tables
+| Name  | Phone | Age |
+|-------+------+----|
+| Peter | 1234 | 17 |
+| Anna  | 4321 | 18 |
+
+** Features (2)
+Plots
+#+BEGIN_SRC gnuplot :file img/sin.png :term png small size 480,320 :exports both
+plot sin(x)
+#+END_SRC
+
+#+RESULTS:
+[[file:img/sin.png]]
+
+** Features (3)
+Diagrams (ditaa)
+
+#+BEGIN_SRC ditaa :file img/diag.png :cmdline :exports both
+    +--------+   +-------+    +-------+
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    |       |
+    |     {d}|   |       |    |       |
+    +---+----+   +-------+    +-------+
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
+
+#+RESULTS:
+[[file:img/diag.png]]
+
+Need to configure ditaa.jar in org mode babel config.
+
+** Features (4)
+
+- TODO list
+- Agenda view
+- Archives
+- Hobby tracking
+- many more..
+
+Won't be covered today
+
+* Install
+
+- Install Emacs
+- Emacs configuration (Emacs lisp)
+
+** Emacs
+
+- OSX
+#+BEGIN_SRC bash
+brew install emacs --with-cocoa --with-imagemagick --devel --librsvg
+brew linkapps emacs
+brew install gnuplot
+#+END_SRC
+
+- Linux
+#+BEGIN_SRC bash
+sudo apt-get install emacs # ubuntu/debian
+sudo apt-get install gnuplot
+sudo yum install emacs     # centos
+sudo yum install gnuplot
+#+END_SRC
+
+- Windows
+Check online manual and download links
+
+** Emacs setup
+
+Copy this to =~/.emacs=
+https://github.com/dryman/org-mode-slide/blob/master/.emacs
+
+Then execute emacs and it should be all set
+
+* Emacs basics
+- GUI version and command line version
+  + emacs --no-window-system
+  + emacs -nw
+- Most common features are in toolbar and menu bar
+
+** Keys
+- ~C-~ Control
+- ~M-~ Meta (option) or Esc
+- ~S-~ Shift
+- ~s-~ Super (apple/command/windows key)
+
+** View commands in menu
+
+file:img/menu.png
+
+- Or search for emacs cheatsheet on google.
+- Not necessary to memorize these shortcuts.
+
+** Enter org mode
+- Create a notes directory at home 
+mkdir -p ~/notes/img
+- Menu -> File -> Visit new file (C-x C-f)
+- Select =~/notes/index.org=
+
+You can change the directory setup in ~.emacs~ file.
+
+* Org mode syntax
+
+** Document header
+
+At the begining of the doc:
+
+#+BEGIN_SRC org
+#+TITLE:  Docuemnt title
+#+AUTHOR: Your name
+
+#+EMAIL:  bla@example.com
+#+DESCRIPTION: simple example
+#+KEYWORDS:  org-mode, syntax
+#+LANGUAGE:  en
+#+END_SRC
+
+** Document structure
+
+#+BEGIN_SRC org
+  * heading 1 (chapter in latex)
+  New chapter.
+  ** heading 2 (section)
+  Paragraph in new section
+  *** heading 3 (subsection)
+  Paragraph in new sub-section
+  **** heading 4 (subsubsection)
+  Paragraph in new sub-sub-section
+#+END_SRC
+
+** Formatting text
+
+#+BEGIN_SRC org
+/Emphasize/ (italics)
+*strongly* (bold)
+*/very strongly/* (bold italics)
+~inline code~
+=verbatim text=
++deleted text+
+super^{script}
+sub_{script}
+#+END_SRC
+
+** Lists
+
+#+BEGIN_SRC org
+- Item with some lengthy text wrapping hopefully across several lines. We add
+  a few words to really show the line wrapping.
+- Bullet.
+  + Bullet.
+    * Bullet.
+#+END_SRC
+
+#+BEGIN_SRC org
+1. Arabic (decimal) numbered list item. We add a few words to show the line
+   wrapping.
+   A. Upper case alpha (letter) numbered list item.
+      a. Lower alpha.
+      b. Lower alpha.
+   B. Upper alpha.
+2. Number.
+#+END_SRC
+
+** Tables
+
+#+BEGIN_SRC org
+#+CAPTION: Table with an header row
+| Name of column 1 | Name of column 2 | Name of column 3 |
+|------------------+------------------+------------------|
+| Top left         | Top middle       |                  |
+|                  |                  | Right            |
+| Bottom left      | Bottom middle    |                  |
+#+END_SRC
+
+** Links
+
+#+BEGIN_SRC org
+http://idryman.org
+file:otherfile.html
+[[file:img/demo.png]]
+[[http://orgmode.org/][Org mode Web site]]
+[[file:otherfile.html][other file]]
+[[mailto:john.doe@example.com][email John Doe]]
+#+END_SRC
+
+* advanced syntax
+
+** Math formulas
+
+- Greek characters: \alpha \beta
+#+BEGIN_SRC org
+\alpha \beta
+#+END_SRC
+
+- Inline math: \sum_{n=1}^10 n^2
+#+BEGIN_ASCII
+\sum_{n=1}^10 n^2
+#+END_ASCII
+
+** Latex formatted math
+
+#+BEGIN_SRC org
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+     
+If $a^2=b$ and \( b=2 \), then the solution must be
+either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+#+END_SRC
+
+-----
+
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+     
+If $a^2=b$ and \( b=2 \), then the solution must be
+either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+
+** plots
+
+See source code for how it is done.
+The export system cannot read the syntax.
+
+#+BEGIN_SRC gnuplot :file img/cos.png :term png small size 480,320 :exports both
+plot cos(x)
+#+END_SRC
+
+* Export
+- M-x org-publish<RET>notes<RET>
+- Output file would be in =~/notes/public_html=
+- Open the output and see how it looks
+
+** Publish
+- school website: upload the exported index.html to hosting directory
+  + I don't recommand to use emacs remotely
+  + Installing latest emacs is hard, and too many commands to memorize
+- github pages (need to learn git)
+
+** Github pages
+
+Assuming github account and online repository is setup
+#+BEGIN_SRC bash
+cd public_html
+git init
+git checkout gh-pages
+git add .
+git commit -m 'creating gh-pages'
+git remote add origin git@github.com:user/repo.git
+git push origin gh-pages
+#+END_SRC
+
+* Thanks for viewing!
