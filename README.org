@@ -1,0 +1,83 @@
+#+TITLE: Org mode
+#+AUTHOR: Felix Chern
+#+REVEAL_THEME: white
+
+* What is it?
+- Best note taking and publishing platform
+- Export supports:
+  + Plain HTML http://www.idryman.org/org-math/probability-01.html
+  + HTML in presentation mode (this slide)
+  + Latex
+  + Latex beamer
+
+** Features (1)
+- Math formulas
+\[
+e^{i\pi} = -1
+\]
+- Tables
+| Name  | Phone | Age |
+|-------+------+----|
+| Peter | 1234 | 17 |
+| Anna  | 4321 | 18 |
+
+** Features (2)
+Plots
+#+BEGIN_SRC gnuplot :file img/sin.png :term png small :exports both
+plot sin(x)
+#+END_SRC
+
+#+RESULTS:
+[[file:img/sin.png]]
+
+** Features (3)
+Diagrams (ditaa)
+
+#+BEGIN_SRC ditaa :file img/diag.png :cmdline :exports both
+    +--------+   +-------+    +-------+
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    |       |
+    |     {d}|   |       |    |       |
+    +---+----+   +-------+    +-------+
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
+
+#+RESULTS:
+[[file:img/diag.png]]
+
+Need to configure ditaa.jar in org mode babel config.
+
+** Features (4)
+
+- TODO list
+- Agenda view
+- Archives
+- Hobby tracking
+- many more..
+
+Won't be covered today
+
+* Install
+
+- Install Emacs
+- Emacs configuration (Emacs lisp)
+
+** Emacs
+
+- OSX
+#+BEGIN_SRC bash
+brew install emacs --with-cocoa --with-imagemagick --devel --librsvg
+brew linkapps emacs
+#+END_SRC
+
+- Linux
+#+BEGIN_SRC bash
+sudo apt-get install emacs # ubuntu/debian
+sudo yum install emacs     # centos
+#+END_SRC
+
+- Windows
+Check online manual and download links
