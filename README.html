@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-08-06 Sat 00:12 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Org mode</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Felix Chern" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Org mode</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline5">1. What is it?</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Features (1)</a></li>
+<li><a href="#orgheadline2">1.2. Features (2)</a></li>
+<li><a href="#orgheadline3">1.3. Features (3)</a></li>
+<li><a href="#orgheadline4">1.4. Features (4)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline8">2. Install</a>
+<ul>
+<li><a href="#orgheadline6">2.1. Emacs</a></li>
+<li><a href="#orgheadline7">2.2. Emacs setup</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">3. Emacs basics</a>
+<ul>
+<li><a href="#orgheadline9">3.1. Keys</a></li>
+<li><a href="#orgheadline10">3.2. View commands in menu</a></li>
+<li><a href="#orgheadline11">3.3. Enter org mode</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline19">4. Org mode syntax</a>
+<ul>
+<li><a href="#orgheadline13">4.1. Document header</a></li>
+<li><a href="#orgheadline14">4.2. Document structure</a></li>
+<li><a href="#orgheadline15">4.3. Formatting text</a></li>
+<li><a href="#orgheadline16">4.4. Lists</a></li>
+<li><a href="#orgheadline17">4.5. Tables</a></li>
+<li><a href="#orgheadline18">4.6. Links</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline23">5. advanced syntax</a>
+<ul>
+<li><a href="#orgheadline20">5.1. Math formulas</a></li>
+<li><a href="#orgheadline21">5.2. Latex formatted math</a></li>
+<li><a href="#orgheadline22">5.3. plots</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline26">6. Export</a>
+<ul>
+<li><a href="#orgheadline24">6.1. Publish</a></li>
+<li><a href="#orgheadline25">6.2. Github pages</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline27">7. Thanks for viewing!</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">1</span> What is it?</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Best note taking and publishing platform</li>
+<li>Export supports:
+<ul class="org-ul">
+<li>Plain HTML <a href="http://www.idryman.org/org-math/probability-01.html">http://www.idryman.org/org-math/probability-01.html</a></li>
+<li>HTML in presentation mode (this slide)</li>
+<li>Latex</li>
+<li>Latex beamer</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Features (1)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Math formulas</li>
+</ul>
+<p>
+\[
+e^{i\pi} = -1
+\]
+</p>
+<ul class="org-ul">
+<li>Tables</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-right">Phone</th>
+<th scope="col" class="org-right">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Peter</td>
+<td class="org-right">1234</td>
+<td class="org-right">17</td>
+</tr>
+
+<tr>
+<td class="org-left">Anna</td>
+<td class="org-right">4321</td>
+<td class="org-right">18</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Features (2)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Plots
+</p>
+<div class="org-src-container">
+
+<pre class="src src-gnuplot"><span style="color: #a020f0;">plot</span> <span style="color: #0000ff;">sin</span>(x)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/sin.png" alt="sin.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Features (3)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Diagrams (ditaa)
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ditaa">+--------+   +-------+    +-------+
+|        | --+ ditaa +--&gt; |       |
+|  Text  |   +-------+    |diagram|
+|Document|   |!magic!|    |       |
+|     {d}|   |       |    |       |
++---+----+   +-------+    +-------+
+    :                         ^
+    |       Lots of work      |
+    +-------------------------+
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/diag.png" alt="diag.png" />
+</p>
+</div>
+
+<p>
+Need to configure ditaa.jar in org mode babel config.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Features (4)</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>TODO list</li>
+<li>Agenda view</li>
+<li>Archives</li>
+<li>Hobby tracking</li>
+<li>many more..</li>
+</ul>
+
+<p>
+Features (4) won't be covered today.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">2</span> Install</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Install Emacs</li>
+<li>Emacs configuration (Emacs lisp)</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.1</span> Emacs</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>OSX</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">brew install emacs --with-cocoa --with-imagemagick --devel --librsvg
+brew linkapps emacs
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Linux</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo apt-get install emacs <span style="color: #b22222;"># </span><span style="color: #b22222;">ubuntu/debian</span>
+sudo yum install emacs     <span style="color: #b22222;"># </span><span style="color: #b22222;">centos</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Windows</li>
+</ul>
+<p>
+Check online manual and download links
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.2</span> Emacs setup</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Copy this to <code>~/.emacs</code>
+<a href="https://github.com/dryman/org-mode-slide/blob/master/.emacs">https://github.com/dryman/org-mode-slide/blob/master/.emacs</a>
+</p>
+
+<p>
+Then execute emacs and it should be all set
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">3</span> Emacs basics</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>GUI version and command line version
+<ul class="org-ul">
+<li>emacs &#x2013;no-window-system</li>
+<li>emacs -nw</li>
+</ul></li>
+<li>Most common features are in toolbar and menu bar</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">3.1</span> Keys</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><code>C-</code> Control</li>
+<li><code>M-</code> Meta (option) or Esc</li>
+<li><code>S-</code> Shift</li>
+<li><code>s-</code> Super (apple/command/windows key)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">3.2</span> View commands in menu</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<div class="figure">
+<p><img src="img/menu.png" alt="menu.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Or search for emacs cheatsheet on google.</li>
+<li>Not necessary to memorize these shortcuts.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.3</span> Enter org mode</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>Create a notes directory at home</li>
+</ul>
+<p>
+mkdir -p ~/notes/img
+</p>
+<ul class="org-ul">
+<li>Menu -&gt; File -&gt; Visit new file (C-x C-f)</li>
+<li>Select <code>~/notes/index.org</code></li>
+</ul>
+
+<p>
+You can change the directory setup in <code>.emacs</code> file.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">4</span> Org mode syntax</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">4.1</span> Document header</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+At the begining of the doc:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #7f7f7f;">#+TITLE:</span>  <span style="color: #191970; font-weight: bold;">Docuemnt title</span>
+<span style="color: #7f7f7f;">#+AUTHOR:</span> <span style="color: #191970;">Your name</span>
+
+<span style="color: #7f7f7f;">#+EMAIL:</span>  <span style="color: #191970;">bla@example.com</span>
+<span style="color: #b22222;">#+DESCRIPTION: simple example</span>
+<span style="color: #b22222;">#+KEYWORDS:  org-mode, syntax</span>
+<span style="color: #b22222;">#+LANGUAGE:  en</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">4.2</span> Document structure</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #0000ff;">* heading 1 (chapter in latex)</span>
+New chapter.
+<span style="color: #a0522d;">** heading 2 (section)</span>
+Paragraph in new section
+<span style="color: #a020f0;">*** heading 3 (subsection)</span>
+Paragraph in new sub-section
+<span style="color: #b22222;">**** heading 4 (subsubsection)</span>
+Paragraph in new sub-sub-section
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">4.3</span> Formatting text</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="font-style: italic;">/Emphasize/</span> (italics)
+<span style="font-weight: bold;">*strongly*</span> (bold)
+<span style="font-weight: bold;">*/very strongly/*</span> (bold italics)
+<span style="color: #7f7f7f;">~inline code~</span>
+<span style="color: #7f7f7f;">=verbatim text=</span>
+<span style="text-decoration: line-through;">+deleted text+</span>
+superscript
+subscript
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">4.4</span> Lists</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="org-src-container">
+
+<pre class="src src-org">- Item with some lengthy text wrapping hopefully across several lines. We add
+  a few words to really show the line wrapping.
+- Bullet.
+  + Bullet.
+    * Bullet.
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-org">1. Arabic (decimal) numbered list item. We add a few words to show the line
+   wrapping.
+   A. Upper case alpha (letter) numbered list item.
+      a. Lower alpha.
+      b. Lower alpha.
+   B. Upper alpha.
+2. Number.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">4.5</span> Tables</h3>
+<div class="outline-text-3" id="text-4-5">
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #b22222;">#+CAPTION:</span> <span style="color: #7f7f7f;">Table with an header row</span>
+<span style="color: #0000ff;">| Name of column 1 | Name of column 2 | Name of column 3 |</span>
+<span style="color: #0000ff;">|------------------+------------------+------------------|</span>
+<span style="color: #0000ff;">| Top left         | Top middle       |                  |</span>
+<span style="color: #0000ff;">|                  |                  | Right            |</span>
+<span style="color: #0000ff;">| Bottom left      | Bottom middle    |                  |</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">4.6</span> Links</h3>
+<div class="outline-text-3" id="text-4-6">
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #3a5fcd; text-decoration: underline;"><a href="http://idryman.org">http://idryman.org</a></span>
+<span style="color: #3a5fcd; text-decoration: underline;"><a href="file:otherfile.html">file:otherfile.html</a></span>
+<span style="color: #3a5fcd; text-decoration: underline;"><a href="file:img/demo.png">file:img/demo.png</a></span>
+<span style="color: #3a5fcd; text-decoration: underline;"><a href="http://orgmode.org/">Org mode Web site</a></span>
+<span style="color: #3a5fcd; text-decoration: underline;"><a href="file:otherfile.html">other file</a></span>
+<span style="color: #3a5fcd; text-decoration: underline;"><a href="mailto:john.doe@example.com">email John Doe</a></span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">5</span> advanced syntax</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">5.1</span> Math formulas</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>Greek characters: &alpha; &beta;</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-org">\alpha \beta
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Inline math: &sum;<sub>n=1</sub><sup>10</sup> n<sup>2</sup></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">5.2</span> Latex formatted math</h3>
+<div class="outline-text-3" id="text-5-2">
+<div class="org-src-container">
+
+<pre class="src src-org">\begin{equation}
+x=\sqrt{b}
+\end{equation}
+
+If $a2=b$ and \( b=2 \), then the solution must be
+either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+</pre>
+</div>
+
+<hr  />
+
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+
+<p>
+If \(a^2=b\) and \( b=2 \), then the solution must be
+either \[ a=+\sqrt{2} \] or \[ a=-\sqrt{2} \].
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">5.3</span> plots</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+See source code for how it is done.
+The export system cannot read the syntax.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-gnuplot"><span style="color: #a020f0;">plot</span> <span style="color: #0000ff;">cos</span>(x)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/cos.png" alt="cos.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">6</span> Export</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>M-x org-publish&lt;RET&gt;notes&lt;RET&gt;</li>
+<li>Output file would be in <code>~/notes/public_html</code></li>
+<li>Open the output and see how it looks</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">6.1</span> Publish</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>school website: upload the exported index.html to hosting directory
+<ul class="org-ul">
+<li>I don't recommand to use emacs remotely</li>
+<li>Installing latest emacs is hard, and too many commands to memorize</li>
+</ul></li>
+<li>github pages (need to learn git)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">6.2</span> Github pages</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Assuming github account and online repository is setup
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #483d8b;">cd</span> public_html
+git init
+git checkout gh-pages
+git add .
+git commit -m <span style="color: #8b2252;">'creating gh-pages'</span>
+git remote add origin git@github.com:user/repo.git
+git push origin gh-pages
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-2">
+<h2 id="orgheadline27"><span class="section-number-2">7</span> Thanks for viewing!</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Felix Chern</p>
+<p class="date">Created: 2016-08-06 Sat 00:12</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
